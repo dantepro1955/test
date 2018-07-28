@@ -1,0 +1,87 @@
+----------------------------------------------------------------------------
+	    driver = new AndroidDriver(remoteUrl, desiredCapabilities);
+# Request
+[POST] localhost:5060/session
+# Body
+{
+  "desiredCapabilities": {"browserName":"Chrome","deviceName":"5200f025f49c84fb","platformName":"Android","platformVersi
+on":"7.0"},
+  "capabilities": {
+    "desiredCapabilities": {"browserName":"Chrome","deviceName":"5200f025f49c84fb","platformName":"Android","platformVer
+sion":"7.0"},
+    "firstMatch": [
+      {"browserName":"Chrome","platformName":"android"}
+    ]
+  }
+}
+
+----------------------------------------------------------------------------
+	    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+# Request
+[POST] localhost:5060/session/1c8d91cc38b89d6f9f10c46b8ac2acb0/timeouts
+# Body
+{"type":"implicit","ms":15000}
+----------------------------------------------------------------------------
+	    driver.get("https://www.wikipedia.org/");
+# Request
+[POST] localhost:5060/session/1c8d91cc38b89d6f9f10c46b8ac2acb0/url
+# Body
+{"url":"https://www.wikipedia.org/"}
+----------------------------------------------------------------------------
+	    WebElement e = driver.findElementById("searchInput");
+# Request
+[POST] localhost:5060/session/1c8d91cc38b89d6f9f10c46b8ac2acb0/element
+# Body
+{"using":"id","value":"searchInput"}
+----------------------------------------------------------------------------
+	    System.out.println(e.getCssValue("color"));
+# Request
+[GET] localhost:5060/session/1c8d91cc38b89d6f9f10c46b8ac2acb0/element/0.0821747089638527-1/css/color
+
+----------------------------------------------------------------------------
+	    System.out.println(e.getAttribute("title"));
+# Request
+[GET] localhost:5060/session/1c8d91cc38b89d6f9f10c46b8ac2acb0/element/0.0821747089638527-1/attribute/title
+----------------------------------------------------------------------------
+	    System.out.println(e.getTagName());
+# Request
+[GET] localhost:5060/session/1c8d91cc38b89d6f9f10c46b8ac2acb0/element/0.0821747089638527-1/name
+----------------------------------------------------------------------------
+	    System.out.println(e.getText());
+# Request
+[GET] localhost:5060/session/1c8d91cc38b89d6f9f10c46b8ac2acb0/element/0.0821747089638527-1/text
+----------------------------------------------------------------------------
+	    System.out.println(e.isDisplayed());
+# Request
+[GET] localhost:5060/session/1c8d91cc38b89d6f9f10c46b8ac2acb0/element/0.0821747089638527-1/displayed
+----------------------------------------------------------------------------
+	    System.out.println(e.isEnabled());
+# Request
+[GET] localhost:5060/session/1c8d91cc38b89d6f9f10c46b8ac2acb0/element/0.0821747089638527-1/enabled
+----------------------------------------------------------------------------
+	    System.out.println(e.getLocation());
+# Request
+[GET] localhost:5060/session/1c8d91cc38b89d6f9f10c46b8ac2acb0/element/0.0821747089638527-1/location
+----------------------------------------------------------------------------
+	    System.out.println(e.isSelected());
+# Request
+[GET] localhost:5060/session/1c8d91cc38b89d6f9f10c46b8ac2acb0/element/0.0821747089638527-1/selected
+----------------------------------------------------------------------------
+	    System.out.println(e.getRect());
+# Request
+[GET] localhost:5060/session/1c8d91cc38b89d6f9f10c46b8ac2acb0/element/0.0821747089638527-1/rect
+----------------------------------------------------------------------------
+	    System.out.println(e.getSize());
+# Request
+[GET] localhost:5060/session/dfe9965952b132afb7cceabae31149d8/element/0.7078910614182603-1/size
+----------------------------------------------------------------------------
+	    e.click();
+# Request
+[POST] localhost:5060/session/dfe9965952b132afb7cceabae31149d8/element/0.7078910614182603-1/click
+----------------------------------------------------------------------------
+	    e.sendKeys("abcd");
+# Request
+[POST] localhost:5060/session/dfe9965952b132afb7cceabae31149d8/element/0.7078910614182603-1/value
+# Body
+{"id":"0.7078910614182603-1","value":["abcd"]}
+----------------------------------------------------------------------------
